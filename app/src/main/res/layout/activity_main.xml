@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFEFE"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/camGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="image,viewFinder,ocrText,photoButton,closeCamButton" />
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="300dp"
+        android:layout_height="445dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.camera.view.PreviewView>
+
+    <TextView
+        android:id="@+id/ocrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="Null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/photoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="[    ]"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewFinder" />
+
+    <Button
+        android:id="@+id/openCamButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/closeCamButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="300dp"
+        android:text="X"
+        app:layout_constraintBottom_toTopOf="@+id/photoButton"
+        app:layout_constraintEnd_toEndOf="@+id/viewFinder"
+        app:layout_constraintStart_toStartOf="@+id/viewFinder"
+        app:layout_constraintTop_toTopOf="@+id/viewFinder" />
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragContainer"
+        android:name="com.example.vision.Menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
